@@ -4,6 +4,7 @@ const cors = require('cors')
 class Server {
     constructor(){
         this.app = express()
+        this.port = process.env.PORT;
 
         //Middlewares
         this.Middlewares()
@@ -28,7 +29,9 @@ class Server {
     }
 
     listem(){
-        this.app.listen(8000, console.log('corriendo en el puerto 8000'))
+        this.app.listen(this.port, ()=>{
+            console.log('corriendo en el puerto 8080', this.port)
+        }) 
     }
 }
 
