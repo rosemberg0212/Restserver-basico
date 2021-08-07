@@ -59,10 +59,10 @@ const actualizarCategoria = async (req, res)=>{
 	resto.nombre = resto.nombre.toUpperCase();
 	resto.usuario = req.usuario._id;
 
-	const categoria = await Categoria.findByIdAndUpdate(id, resto)
+	const categoria = await Categoria.findByIdAndUpdate(id, resto, {new: true})
 
 	res.json({
-		resto
+		categoria
 	})
 }
 

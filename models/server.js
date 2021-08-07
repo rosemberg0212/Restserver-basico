@@ -8,10 +8,11 @@ class Server {
         this.port = process.env.PORT;
 
         this.paths = {
-            authPath: '/api/auth',
-            usuarios: '/api/usuarios',
+            authPath:   '/api/auth',
+            usuarios:   '/api/usuarios',
             categorias: '/api/categorias',
-            productos: '/api/productos',
+            productos:  '/api/productos',
+            buscar:     '/api/buscar',
         }
 
         //conectar BD
@@ -40,10 +41,11 @@ class Server {
     }
     
     routes(){
-        this.app.use(this.paths.authPath, require('../routes/auth'))
-        this.app.use(this.paths.usuarios, require('../routes/user'))
-        this.app.use(this.paths.categorias, require('../routes/categorias'))
-        this.app.use(this.paths.productos, require('../routes/productos'))
+        this.app.use(this.paths.authPath, require('../routes/auth'));
+        this.app.use(this.paths.usuarios, require('../routes/user'));
+        this.app.use(this.paths.categorias, require('../routes/categorias'));
+        this.app.use(this.paths.productos, require('../routes/productos'));
+        this.app.use(this.paths.buscar, require('../routes/buscar'));
     }
 
     listem(){
