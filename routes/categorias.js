@@ -17,7 +17,9 @@ const {CrearCategoria,
 const router = Router();
 
 //obtener todas las cotegorias - publico
-router.get('/',ObtenerCategoria);
+router.get('/',[
+	validarJWT
+	]ObtenerCategoria);
 
 //Obtener categoria por id - publico
 router.get('/:id',[
