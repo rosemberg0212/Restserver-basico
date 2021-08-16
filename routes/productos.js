@@ -18,7 +18,7 @@ const {validarCampos,
 const router = Router();
 
 
-router.get('/',obtenerProductos);
+router.get('/',[validarJWT],obtenerProductos);
 
 router.get('/:id',[
 	check('id','No es un ID valido').isMongoId(),

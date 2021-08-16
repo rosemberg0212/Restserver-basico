@@ -1,7 +1,7 @@
 const {Producto} = require('../models')
 
 const obtenerProductos = async(req, res)=>{
-    const productos = await Producto.find({estado: true})
+    const productos = await Producto.find({usuario: req.usuario, estado: true})
         .populate('usuario','nombre')
         .populate('categoria','nombre')
 

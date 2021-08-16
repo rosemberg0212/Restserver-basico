@@ -4,8 +4,8 @@ const ObtenerCategoria = async (req, res)=>{
 	const {limite = 10, desde = 0} = req.query;
 
     const [total, categorias] = await Promise.all([
-        Categoria.countDocuments({estado: true}),
-        Categoria.find({estado: true})
+        Categoria.countDocuments({usuario: req.usuario, estado: true}),
+        Categoria.find({usuario: req.usuario, estado: true})
         	.populate('usuario','nombre')
             .skip(Number(desde))
             .limit(Number(limite))
